@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+vsstudio/*
+externals/sfml
+!vsstudio/generative_vs2022.bat
+.vs/*
