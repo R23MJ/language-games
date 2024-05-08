@@ -7,6 +7,7 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <board_operations.hpp>
 #include <file_operations.hpp>
 #include <string_operations.hpp>
 
@@ -14,30 +15,6 @@ auto process_event(sf::Event& window_event) {
 	if (window_event.type == sf::Event::Closed)
 		return false;
 	return true;
-}
-
-void createPlayWheel(auto const& characters, auto& letters_to_play, auto& center, float distance, auto& font) {
-	float rotationOffset = 0;
-	if (characters.length() != 4)
-		rotationOffset = 90.0f + (360.0f / characters.length()) / 2.0f;
-
-	for (int i = 0; i < characters.length(); ++i) {
-		float angle = i * (360.0f / characters.length()) + rotationOffset;
-		float radians = angle * (3.14159f / 180.0f);
-
-		float offsetX = distance * std::cos(radians);
-		float offsetY = distance * std::sin(radians);
-
-		letters_to_play.emplace_back();
-
-		letters_to_play.back().setFont(font);
-		letters_to_play.back().setCharacterSize(42);
-		letters_to_play.back().setString(characters[i]);
-
-		sf::FloatRect textBounds = letters_to_play.back().getLocalBounds();
-		letters_to_play.back().setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);
-		letters_to_play.back().setPosition(center.x + offsetX, center.y + offsetY);
-	}
 }
 
 bool try_place(auto& grid, auto const& word, auto const& font) {
@@ -74,18 +51,17 @@ int main() {
 		});
 
 	auto word = word_def_map[0].first;
-	auto can_be_spelled = std::ranges::filter_view(word_def_map, [&word](auto const& candidate_pair)->bool {
-		return games::canSpell(word, candidate_pair.first);
-		});
 
-	for (auto& word : can_be_spelled) {
+	for (auto& word : std::ranges::filter_view(word_def_map, [&word](auto const& candidate_pair)->bool {
+						return games::canSpell(word, candidate_pair.first);
+						})) {
 		if (!try_place(crossword_words, word.first, font))
 			break;
 	}
 
 	sf::CircleShape letters_bg;
 	makePlayWheelBackground(letters_bg);
-	createPlayWheel(word, letters_to_play, letters_bg.getPosition(), 75.f, font);
+	games::createPlayWheel(word, letters_to_play, letters_bg.getPosition(), 75.f, font);
 
 	sf::RenderWindow game_window(sf::VideoMode(800, 600), "Language Games");
 	while (game_window.isOpen()) {
