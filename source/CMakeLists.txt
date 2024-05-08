@@ -23,6 +23,8 @@ add_executable(
 	${APP_SOURCE_DIR}/main.cpp
 	${INCLUDE_DIR}/file_operations.hpp
 	${INCLUDE_DIR}/string_operations.hpp
+	${INCLUDE_DIR}/game_operations.hpp
+	${INCLUDE_DIR}/game_loop.hpp
 )
 
 target_link_libraries(
