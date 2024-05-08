@@ -1,31 +1,219 @@
-слово a single distinct meaningful element of speech or writing
-мова the method of human communication, either spoken or written
-речення a set of words that is complete in itself, typically containing a subject and predicate
-навчання the acquisition of knowledge or skills through study, experience, or being taught
-розуміння the ability to comprehend or grasp the meaning of something
-книга a written or printed work consisting of pages glued or sewn together along one side and bound in covers
-школа an institution for educating children or teenagers
-вчитель a person who teaches, especially in a school
-студент a person who is studying at a university or other place of higher education
-знання facts, information, and skills acquired through experience or education
-дослідження systematic investigation into and study of materials and sources in order to establish facts and reach new conclusions
-письмо the activity or skill of marking coherent words on paper and composing text
-читання the action or skill of reading written or printed matter silently or aloud
-досвід practical contact with and observation of facts or events
-розвиток the process of developing or being developed
-клас a set or category of things having some property or attribute in common and differentiated from others by kind, type, or quality
-місто a large town
-дім a building for human habitation, especially one that consists of a ground floor and one or more upper storeys
-мама one's mother
-тато one's father
+цукор a sweet crystalline substance obtained from various plants, predominantly sugar cane and sugar beet, used as a sweetener in food and drink
+хліб a staple food made from dough of flour and water, usually by baking
+молоко a white liquid produced by the mammary glands of mammals
+пиво an alcoholic drink made from yeast-fermented malt flavored with hops
+вода a transparent, odorless, tasteless liquid that forms the seas, lakes, rivers, and rain and is the basis of the fluids of living organisms
+сонце the star around which the earth orbits and from which it receives light and warmth
+небо the expanse of space that seems to be over the earth like a dome
 день a period of twenty-four hours as a unit of time, reckoned from one midnight to the next
-ночі the period of darkness in each twenty-four hours
-сон a condition of body and mind that typically recurs for several hours every night, in which the nervous system is relatively inactive, the eyes closed, the postural muscles relaxed, and consciousness practically suspended
-вітер the perceptible natural movement of the air, especially in the form of a current of air blowing from a particular direction
-хмара a visible mass of condensed water vapor floating in the atmosphere, typically high above the ground
-дощ moisture condensed from the atmosphere that falls visibly in separate drops
-сніг atmospheric water vapor frozen into ice crystals and falling in light white flakes or lying on the ground as a white layer
-море the expanse of salt water that covers most of the earth's surface and surrounds its landmasses
-пісок a loose granular substance, typically pale yellowish brown, resulting from the erosion of siliceous and other rocks and forming a major constituent of beaches, riverbeds, the seabed, and deserts
-зірка a fixed luminous point in the night sky that is a large, remote incandescent body like the sun
-не means no
+ночі the period from sunset to sunrise in each twenty-four hours
+вечір the latter part of the day and early part of the night
+ранок the time from midnight to noon, especially from sunrise to noon
+земля the substance of the land surface; soil
+повітря the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen
+огонь a process in which substances combine chemically with oxygen from the air and typically give out bright light, heat, and smoke; combustion or burning
+кіт a small domesticated carnivorous mammal with soft fur, a short snout, and retractable claws
+собака a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, and a barking, howling, or whining voice
+квітка the reproductive structure in flowering plants where seeds are produced
+дерево a perennial plant with an elongated stem, or trunk, supporting branches and leaves
+лист a flattened structure of a higher plant, typically green and blade-like, that is attached to a stem directly or via a stalk
+фрукт the sweet and fleshy product of a tree or other plant that contains seed and can be eaten as food
+яблуко the round fruit of a tree of the rose family, which typically has thin green or red skin and crisp flesh
+груша a sweet, bell-shaped fruit, typically narrow at the stalk and wider towards the base, with pale green or brown flesh
+помідор a glossy red, or occasionally yellow, pulpy edible fruit that is typically eaten as a vegetable or in salad
+картопля a starchy plant tuber which is one of the most important food crops, cooked and eaten as a vegetable
+морква a tapering orange-colored root eaten as a vegetable
+цибуля a plant of the genus Allium (related to garlic) with a bulb that has a pungent taste and smell and is used in cooking
+огірок a long, green-skinned fruit with watery flesh, usually eaten raw in salads or pickled
+перець a small spicy fruit of the Capsicum family, typically red, green, or yellow, eaten as a vegetable or used as a spice
+часник a strong-smelling pungent-tasting bulb, used as a flavoring in cooking and in herbal medicine
+сіль a white crystalline substance that gives seawater its characteristic taste and is used for seasoning or preserving food
+м’ясо the flesh of an animal (especially a mammal) as food
+риба a limbless cold-blooded vertebrate animal with gills and fins living wholly in water
+курка a domestic fowl kept for its eggs or meat, especially a young one
+яйце an oval or round object laid by a female bird, reptile, fish, or invertebrate, usually containing a developing embryo
+сир a food made from the pressed curds of milk, firm and elastic or soft and semi-liquid in texture
+масло a fatty substance made by churning cream, used as a spread or in cooking
+пиріг a baked dish of fruit, or meat and vegetables, typically with a top and base of pastry
+торт a sweet baked dessert usually containing flour, sugar, eggs, and flavoring, typically having a firm or crumbly texture
+кекс a small cake, typically round and flat and having a dense, rich texture
+борщ a soup made with beetroots, giving it a strong red color, usually served with sour cream
+вареники dumplings of Eastern European origin, filled with meat, cheese, or fruit
+голубці cabbage leaves stuffed with minced meat and rice, then baked or simmered in a sauce
+плов a dish of rice cooked in stock with spices, typically including pieces of meat or vegetables
+куліш a traditional Ukrainian dish, a type of thick millet porridge with lard, onions, and sometimes meat
+сало a traditional Eastern European food that consists of cured slabs of fatback, with or without skin
+компот a sweet beverage made from fruit boiled in water with sugar
+квас a traditional Slavic and Baltic beverage made from rye bread, known for its slight alcoholic content and fermentation
+чебурек a deep-fried turnover with a filling of ground or minced meat and onions
+самогон a homemade distilled alcoholic beverage, similar to moonshine
+лікар a person qualified to practice medicine, especially one who specializes in diagnosis and medical treatment as distinct from surgery
+інженер a person who designs, builds, or maintains engines, machines, or structures
+бухгалтер someone who is responsible for managing the financial accounts of a company
+адвокат a person who practices or studies law; an attorney or a counselor
+продавець a person who sells goods or services
+кухар a person who prepares and cooks food, especially as a job
+водій a person who operates a vehicle, especially a motor vehicle
+поліцейський a member of a police force
+пожежник a person whose job is to extinguish fires
+лікарня a facility for the medical treatment of ill or injured people, typically including emergency services and various types of wards and specialists
+аптека a store where medicinal drugs are dispensed and sold, and various medical services may be offered
+школа an institution for educating children
+університет an institution of higher education and research, which awards academic degrees in various academic disciplines
+бібліотека a building or room containing collections of books, periodicals, and sometimes films and recorded music for use or borrowing by the public or members of an institution
+музей a building in which objects of historical, scientific, artistic, or cultural interest are stored and exhibited
+театр a building or outdoor area in which plays and other dramatic performances are given
+кінотеатр a theater where movies are shown for public entertainment
+ресторан a place where people pay to sit and eat meals that are cooked and served on the premises
+кафе a small restaurant selling light meals and drinks
+готель a building providing lodging, meals, and other services for travelers and tourists
+супермаркет a large self-service store selling foods and household goods
+ринок a regular gathering of people for the purchase and sale of provisions, livestock, and other commodities
+парк a large public green area in a town, used for recreation
+пляж a pebbly or sandy shore, especially by the sea between high- and low-water marks
+зоопарк a facility in which animals are confined within enclosures and displayed to the public, and in which they may also breed
+акваріум a transparent tank of water in which fish and other water creatures and plants are kept
+планетарій a building housing an instrument for projecting the positions of the planets onto a domed ceiling
+виставка an organized presentation and display of a selection of items
+фестиваль a day or period of celebration, typically for religious reasons
+концерт a public performance of music
+виступ a public presentation or performance, typically involving drama or music
+змагання an event in which people compete, typically in sports
+турнір a series of contests between a number of competitors, who compete for an overall prize
+марафон a long-distance running race, strictly one of 26 miles and 385 yards (42.195 km)
+футбол a game in which two teams of eleven players each try to get a ball into the other team's goal primarily by kicking the ball with their feet
+баскетбол a game played between two teams of five players in which goals are scored by throwing a ball through a netted hoop fixed at each end of the court
+хокей a game played on an ice rink by two opposing teams of skaters, using sticks curved at the striking end to drive a puck into the opponent's goal
+теніс a game in which two or four players strike a ball with rackets over a net stretched across a court
+гольф a game played on a large open-air course, in which a small hard ball is struck with a club into a series of small holes in the ground, the object being to use the fewest possible strokes to complete the course
+велоспорт the sport or activity of riding a bicycle
+плавання the sport or activity of moving through water by moving the limbs, fins, tail, etc.
+альпінізм the sport or activity of climbing mountains
+парашутизм the sport or activity of jumping from an aircraft and descending safely to the ground by parachute
+бокс a sport in which two participants of similar weight fight each other with their fists
+дзюдо a modern martial art, combat and Olympic sport created in Japan in 1882 by Jigoro Kano
+карате a martial art developed in the Ryukyu Kingdom under the influence of Chinese kung fu, known for its focus on striking techniques
+аеробіка a form of physical exercise that combines rhythmic aerobic exercise with stretching and strength training routines with the goal of improving all elements of fitness
+йога a Hindu spiritual and ascetic discipline, a part of which, including breath control, simple meditation, and the adoption of specific bodily postures, is widely practiced for health and relaxation
+танці artistic forms of nonverbal communication
+вишиванка a traditional embroidered shirt in Ukrainian national costume
+коровай a traditional Ukrainian bread, typically served at weddings and special celebrations
+паска a traditional Eastern Orthodox or Eastern Catholic bread, usually blessed and eaten at Easter
+вареники small dumplings made from dough filled with fruits, potatoes, or other fillings
+голубці stuffed cabbage rolls commonly made with minced meat
+борщ a soup of Ukrainian origin that is popular in many Eastern and Central European countries. It is made with beetroot as the main ingredient, giving it a distinctive red color.
+плов a dish of rice, cooked in seasoned broth with meat, sometimes with onions and carrots
+сало a traditional Eastern European food that consists of cured slices of back fat from pigs, often seasoned with garlic and spices
+компот a drink made by boiling fruit in water with sugar, sometimes served cold
+квас a traditional Slavic and Baltic fermented beverage commonly made from rye bread, known for its slight alcoholic content and sour taste
+чебурек a deep-fried turnover with a filling of ground or minced meat and onions
+самогон a homemade distilled alcoholic beverage, similar to moonshine
+лікар a medical doctor, especially one who practices medicine as opposed to surgery
+інженер a professional practitioner of engineering, concerned with applying scientific knowledge, mathematics, and ingenuity to develop solutions for technical problems
+бухгалтер an accountant, especially one who is competent in commercial accounting and financial reporting
+адвокат a lawyer, particularly a trial lawyer
+продавець a salesperson, especially in a retail environment
+кухар a chef, particularly one who is professionally trained to cook in a restaurant or hotel
+водій a driver, especially one who operates a vehicle as a profession
+поліцейський a police officer, especially one who is a member of a municipal police force
+пожежник a firefighter, especially one who is trained to deal with hazardous fires and rescue operations
+лікарня a hospital, especially one that provides treatment for sick or injured people
+аптека a pharmacy or drugstore, especially one that sells prescription medications
+школа a school, particularly an institution for educating children
+університет a university, especially an institution of higher learning that grants academic degrees in various fields
+бібліотека a library, especially a public institution that lends books and other media to patrons
+музей a museum, especially an institution that houses and cares for a collection of artifacts and other objects of artistic, cultural, historical, or scientific importance
+театр a theater, especially a building or outdoor area where theatrical performances are given
+кінотеатр a cinema or movie theater, especially a building where films are shown to an audience
+ресторан a restaurant, especially an establishment where meals are served and eaten on the premises
+кафе a cafe, particularly a small and informal establishment serving coffee and light meals
+готель a hotel, especially an establishment that provides lodging, meals, and other services for travelers and tourists
+супермаркет a supermarket, especially a large self-service store selling groceries and household goods
+ринок a market, especially an open area or a building where vendors sell their goods
+парк a park, especially a large public area of land used for recreation
+пляж a beach, especially a sandy or pebbly shore by the sea or a lake
+зоопарк a zoo, particularly a place where wild animals are kept for exhibition
+акваріум an aquarium, especially a facility where aquatic organisms are kept and displayed
+планетарій a planetarium, especially a theater built primarily for presenting educational and entertaining shows about astronomy and the night sky
+виставка an exhibition, especially a public display of works of art or items of interest, held in an art gallery or museum or at a trade fair
+фестиваль a festival, especially an event celebrating a particular theme or subject, often with music and food
+концерт a concert, particularly a live performance of music in front of an audience
+виступ a performance, especially an act of performing in front of an audience
+змагання a competition, especially an event in which people compete against each other in a sport
+турнір a tournament, especially a series of contests in a particular sport
+марафон a marathon, particularly a long-distance running event over a distance of 42.195 kilometers
+футбол football, particularly a game in which two teams of eleven players each compete to get a ball into the opposing team's goal, primarily using their feet
+баскетбол basketball, particularly a game played on a rectangular court by two teams of five players each
+хокей hockey, especially a sport in which two teams play against each other by trying to maneuver a puck or a ball into the opponent's goal using a hockey stick
+теніс tennis, particularly a game in which two or four players hit a lightweight ball back and forth across a net using a stringed racket
+гольф golf, especially a game played on a large open-air course, in which a ball is struck with a club into a series of holes with the fewest strokes possible
+велоспорт cycling, especially the sport or activity of riding bicycles
+плавання swimming, particularly the act of moving through water by using the arms, legs, and body in motions called strokes
+альпінізм mountaineering, especially the sport or activity of climbing mountains
+парашутизм skydiving, particularly the act of jumping from an aircraft and descending safely to the ground by parachute
+бокс boxing, particularly a sport in which two people fight using their fists, with gloves, in a ring
+дзюдо judo, especially a modern martial art, combat, and Olympic sport that originated in Japan in the late 19th century
+карате karate, particularly a martial art developed in the Ryukyu Islands, now part of Japan, which emphasizes striking techniques with hands and feet
+аеробіка aerobics, especially a form of exercise that combines rhythmic aerobic exercise with stretching and strength training routines, aimed at improving all components of fitness
+йога yoga, particularly a Hindu spiritual and ascetic discipline that includes breath control, meditation, and the adoption of specific bodily postures, widely practiced for health and relaxation
+танці dance, particularly the art of moving the body in a rhythmic way, usually to music, to express an emotion or idea, or simply to take delight in the movement itself
+вишиванка an embroidered shirt, typically part of traditional Ukrainian national dress
+коровай a traditional Ukrainian ceremonial bread, typically served at weddings
+паска a traditional Eastern Orthodox bread made during Easter, characterized by its round shape and rich, sweet dough
+вареники a traditional Ukrainian dumpling made with a variety of fillings, including potato, cabbage, or cherries
+голубці a traditional Ukrainian dish consisting of cabbage leaves wrapped around a variety of fillings, typically rice and meat
+борщ a traditional Ukrainian soup known for its characteristic red color, made with beets, cabbage, and other vegetables
+плов a dish of cooked rice, often with added meat and vegetables, commonly found in various cuisines across Asia and the Middle East
+сало a traditional Eastern European food, primarily made from cured slices of fatback, often enjoyed raw or cooked
+компот a traditional beverage, made by cooking fruit in water with sugar, often served cold and enjoyed as a refreshment
+квас a traditional fermented beverage made from rye bread, popular in Eastern Europe, known for its tart flavor
+чебурек a deep-fried turnover, often filled with ground meat and onions, popular in Eastern European and Central Asian cuisines
+самогон a type of homemade distilled alcoholic beverage, similar to moonshine, popular in rural areas of Eastern Europe
+лікар a medical professional, particularly one who practices medicine, as opposed to surgery or other specialties
+інженер a professional who applies scientific knowledge to solve practical problems, often in the context of building or manufacturing
+бухгалтер a professional responsible for managing the financial records of an organization, ensuring accuracy and compliance with legal standards
+адвокат a legal professional, especially one who represents clients in court and provides legal advice
+продавець a retail worker, especially one involved in selling goods directly to consumers
+кухар a culinary professional, especially one who works in a commercial kitchen preparing meals for guests
+водій a professional driver, particularly one who operates vehicles, whether for public transport, freight, or private clients
+поліцейський a law enforcement officer, especially one serving in a municipal or national police force
+пожежник a firefighter, especially one trained to tackle fires and conduct rescue operations
+лікарня a medical facility, particularly one that offers treatment and care for sick and injured people
+аптека a place where medicinal drugs are dispensed and professional health advice is offered
+школа an educational institution, especially one that provides primary and secondary education
+університет an institution of higher education, especially one that offers degrees in various academic disciplines
+бібліотека a facility that houses a collection of books, periodicals, and sometimes films and music for public use
+музей an institution that preserves and exhibits objects of historical, cultural, or scientific interest
+театр a venue for live performances, particularly plays and other dramatic works
+кінотеатр a venue specifically designed for the screening of films to an audience
+ресторан a dining establishment where meals are served and consumed on the premises
+кафе a small, informal establishment serving coffee, beverages, and light meals
+готель an establishment that provides lodging, meals, and other services to travelers and tourists
+супермаркет a large retail store offering a wide variety of food and household products, organized into aisles
+ринок a public space or venue where goods and services are exchanged or sold, often outdoors
+парк a designated area, often in an urban context, where people can engage in recreational activities and enjoy natural surroundings
+пляж a landform alongside a body of water which consists of loose particles, often composed of rock, such as sand, gravel, shingle, pebbles, or cobblestones
+зоопарк a facility in which animals are housed within enclosures, displayed to the public, and in which they may also breed
+акваріум a place where aquatic plants and animals are exhibited and studied
+планетарій a facility equipped with a projector that displays images of celestial bodies and phenomena on a domed ceiling
+виставка an event at which objects such as artworks are displayed
+фестиваль a period of celebration, typically for cultural or religious purposes, often with performances and exhibitions
+концерт a live music performance in front of an audience, typically by a single artist or a band
+виступ an act of performing, often involving a presentation in front of an audience
+змагання a contest or sports event in which people compete against each other
+турнір a series of sports contests in which teams or individuals compete against each other in a particular game or sport
+марафон a long-distance running event, officially 42.195 kilometers, typically run as a road race
+футбол a team sport played between two teams of eleven players with a spherical ball, known worldwide as soccer
+баскетбол a team sport in which two teams of five players try to score points by throwing a ball through the top of a basketball hoop
+хокей a sport played by two teams on an ice rink, in which players use sticks to direct a puck into the opposing team's goal
+теніс a sport in which two or four players strike a hollow rubber ball covered with felt over or around a net into the opponent's court
+гольф a sport in which players use clubs to hit balls into a series of holes on a course in as few strokes as possible
+велоспорт the sport of riding and racing bicycles, whether on roads, trails, or tracks
+плавання the sport or activity of propelling oneself through water using the limbs
+альпінізм the sport or practice of climbing or ascending mountains
+парашутизм the activity of skydiving or parachuting for sport or recreation
+бокс a combat sport in which two people wearing protective gloves throw punches at each other for a predetermined set of time in a boxing ring
+дзюдо a modern martial art and Olympic sport that originated in Japan in the late 19th century, emphasizing throwing techniques and physical conditioning
+карате a martial art developed in the Ryukyu Islands, now part of Japan, characterized by punching, kicking, knee strikes, elbow strikes, and open-hand techniques such as knife-hands, spear-hands, and palm-heel strikes
+аеробіка a form of exercise that combines rhythmic aerobic exercise with stretching and strength training routines with the goal of improving all elements of fitness
+йога a group of physical, mental, and spiritual practices or disciplines which originated in ancient India, aimed at controlling and stilling the mind and recognizing a detached 'witness-consciousness' untouched by the mind and mundane suffering

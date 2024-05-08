@@ -21,6 +21,8 @@ find_library(SFML_NETWORK_DIR sfml-window ${SFML_BUILD_DIR})
 add_executable(
 	app
 	${APP_SOURCE_DIR}/main.cpp
+	${INCLUDE_DIR}/file_operations.hpp
+	${INCLUDE_DIR}/string_operations.hpp
 )
 
 target_link_libraries(
