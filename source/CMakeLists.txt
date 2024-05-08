@@ -4,6 +4,7 @@ SET (APP_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/")
 SET (EXTERNALS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 SET (SFML_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external/sfml")
 SET (INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+SET (RESOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../resources")
 
 find_library(SFML_AUDIO_DEBUG_DIR sfml-audio-d ${SFML_BUILD_DIR})
 find_library(SFML_GRAPHICS_DEBUG_DIR sfml-graphics-d ${SFML_BUILD_DIR})
@@ -21,10 +22,13 @@ find_library(SFML_NETWORK_DIR sfml-window ${SFML_BUILD_DIR})
 add_executable(
 	app
 	${APP_SOURCE_DIR}/main.cpp
+	${INCLUDE_DIR}/graphics_operations.hpp
 	${INCLUDE_DIR}/file_operations.hpp
 	${INCLUDE_DIR}/string_operations.hpp
 	${INCLUDE_DIR}/game_operations.hpp
 	${INCLUDE_DIR}/game_loop.hpp
+
+	${RESOURCE_DIR}/vocab.txt
 )
 
 target_link_libraries(

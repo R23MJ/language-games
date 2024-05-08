@@ -29,16 +29,23 @@ namespace games {
 			game_window.clear();
 			game_window.draw(level_resources->background);
 
-			if (level_resources->level_type == LevelResources::LevelType::CROSSWORD)
+			if (level_resources->level_type == LevelResources::LevelType::CROSSWORD) {
+
 				game_window.draw(shared_resources->wheel_background);
 
-			//std::ranges::for_each(crossword_words, [&game_window](auto const& word) {
-			//	game_window.draw(word);
-			//	});
+				std::ranges::for_each(level_resources->grid_cells, [&game_window](auto const& sprite) {
+					game_window.draw(sprite);
+					});
 
-			//std::ranges::for_each(letters_to_play, [&game_window](auto const& c) {
-			//	game_window.draw(c);
-			//	});
+				std::ranges::for_each(level_resources->playable_letters, [&game_window](auto const& c) {
+					game_window.draw(c);
+					});
+
+				std::ranges::for_each(level_resources->grid_letters, [&game_window](auto const& text) {
+					game_window.draw(text);
+					});
+
+			}
 
 			game_window.display();
 		}
