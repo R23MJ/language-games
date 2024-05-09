@@ -15,7 +15,7 @@ namespace games {
 
 	namespace detail {
 
-		constexpr size_t VOCAB_SIZE = 6;
+		constexpr size_t VOCAB_SIZE = 2;
 
 	}
 
@@ -40,7 +40,7 @@ namespace games {
 		bool completed = false;
 
 		std::wstring level_word;
-		std::wstring active_word;
+		std::vector<std::reference_wrapper<sf::Text>> active_word;
 
 		sf::Texture background_texture;
 		sf::Sprite background;

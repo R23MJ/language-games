@@ -13,7 +13,7 @@ namespace games {
 		void handlePressed(sf::Vector2f const& pos, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			std::ranges::for_each(level_resources->playable_letters, [&pos, &level_resources](auto& text) {
 				if (text.second.getGlobalBounds().contains(pos))
-					level_resources->active_word = text.first.getString();
+					level_resources->active_word.push_back(text.first);
 				});
 		}
 
@@ -22,7 +22,7 @@ namespace games {
 				return canSpell(level_resources->level_word, word_def_pair.first);
 				});
 
-			size_t count = std::ranges::distance(filtered_words);
+			/*size_t count = std::ranges::distance(filtered_words);
 			auto index = 0;
 			std::wstring_view word_ref;
 			for (auto& word : filtered_words) {
@@ -34,22 +34,22 @@ namespace games {
 			}
 
 			for (auto jndex = 0; jndex < word_ref.size(); ++jndex)
-				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);
+				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);*/
 
 			level_resources->completed = std::ranges::all_of(level_resources->grid_letters, [](auto const& c)->bool {
 				return c.getFillColor() == sf::Color::Green;
 				});
 
-			level_resources->active_word = L"";
+			level_resources->active_word.clear();
 		} 
 
 		void handleMoved(sf::Vector2f const& pos, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Touch::isDown(0)) {
 				std::ranges::for_each(level_resources->playable_letters, [&pos, &level_resources](auto& text) {
 					if (text.second.getGlobalBounds().contains(pos)) {
-						if (std::ranges::find(level_resources->active_word, text.first.getString()) == level_resources->active_word.end())
-							level_resources->active_word += text.first.getString();
-						else if (level_resources->active_word.size() >= 2 && level_resources->active_word[level_resources->active_word.size() - 2] == text.first.getString())
+						if (std::ranges::none_of(level_resources->active_word, [&text](auto const& c)->bool { return &c.get() == &text.first; }))
+							level_resources->active_word.push_back(text.first);
+						else if (level_resources->active_word.size() >= 2 && &level_resources->active_word[level_resources->active_word.size() - 2].get() == &text.first)
 							level_resources->active_word.pop_back();
 					}
 					});
@@ -106,7 +106,9 @@ namespace games {
 					});
 
 				std::ranges::for_each(level_resources->playable_letters, [&shared_resources, &level_resources](auto& c) {
-					if (std::ranges::find(level_resources->active_word, c.first.getString()) != level_resources->active_word.end())
+					if (std::ranges::find_if(level_resources->active_word, [&c](auto& ref)->bool {
+						return &ref.get() == &c.first;
+						}) != level_resources->active_word.end())
 						shared_resources->game_window.draw(c.second);
 					shared_resources->game_window.draw(c.first);
 					});
