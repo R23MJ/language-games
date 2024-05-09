@@ -34,10 +34,12 @@ namespace games {
 	struct LevelResources {
 		enum class LevelType { MENU, CROSSWORD } level_type = LevelType::MENU;
 
+		std::wstring active_word;
+
 		sf::Texture background_texture;
 		sf::Sprite background;
 
-		std::vector<sf::Text> playable_letters;
+		std::vector<std::pair<sf::Text, sf::CircleShape>> playable_letters;
 		std::vector<sf::Text> grid_letters;
 		std::vector<sf::Sprite> grid_cells;
 	};
@@ -65,7 +67,7 @@ namespace games {
 			level_resources->level_type = LevelResources::LevelType::CROSSWORD;
 
 		std::ranges::for_each(shared_resources->word_def_map[0].first, [&level_resources](auto const& c) {
-			level_resources->playable_letters.emplace_back().setString(c);
+			level_resources->playable_letters.emplace_back().first.setString(c);
 			});
 
 		loadPlayWheel(level_resources->playable_letters, shared_resources->wheel_background, shared_resources->alice, { 400.f, 500.f });
