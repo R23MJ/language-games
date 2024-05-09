@@ -15,7 +15,7 @@ namespace games {
 
 	namespace detail {
 
-		constexpr size_t VOCAB_SIZE = 2;
+		constexpr size_t VOCAB_SIZE = 19;
 
 	}
 
@@ -104,6 +104,8 @@ namespace games {
 		resources->grid_letters.clear();
 		resources->grid_cells.clear();
 		resources->playable_letters.clear();
+		resources->active_word.clear();
+		resources->level_word.clear();
 	}
 
 }

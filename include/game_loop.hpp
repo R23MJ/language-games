@@ -22,11 +22,14 @@ namespace games {
 				return canSpell(level_resources->level_word, word_def_pair.first);
 				});
 
-			/*size_t count = std::ranges::distance(filtered_words);
+			size_t count = std::ranges::distance(filtered_words);
 			auto index = 0;
 			std::wstring_view word_ref;
 			for (auto& word : filtered_words) {
-				if (word.first == level_resources->active_word) {
+				size_t letter_index = 0;
+				if (word.first.size() == level_resources->active_word.size() && std::ranges::all_of(level_resources->active_word, [&word, &letter_index, &level_resources](auto const& c)->bool {
+					return word.first[letter_index++] == c.get().getString();
+					})) {
 					word_ref = word.first;
 					break;
 				}
@@ -34,7 +37,7 @@ namespace games {
 			}
 
 			for (auto jndex = 0; jndex < word_ref.size(); ++jndex)
-				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);*/
+				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);
 
 			level_resources->completed = std::ranges::all_of(level_resources->grid_letters, [](auto const& c)->bool {
 				return c.getFillColor() == sf::Color::Green;
