@@ -13,24 +13,47 @@ namespace games {
 		void handleMousePressed(sf::Event& window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			sf::Vector2f mousepos = sf::Vector2f(window_event.mouseButton.x, window_event.mouseButton.y);
 			std::ranges::for_each(level_resources->playable_letters, [&mousepos, &level_resources](auto& text) {
-				if (text.first.getGlobalBounds().contains(mousepos))
+				if (text.second.getGlobalBounds().contains(mousepos))
 					level_resources->active_word = text.first.getString();
 				});
 		}
 
 		void handleMouseReleased(sf::Event& window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			sf::Vector2f mousepos = sf::Vector2f(window_event.mouseButton.x, window_event.mouseButton.y);
-			// Check active word against words
+
+			auto letters = shared_resources->word_def_map[0].first;
+			auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&letters](auto const& word_def_pair)->bool {
+				return canSpell(letters, word_def_pair.first);
+				});
+
+			size_t count = std::ranges::distance(filtered_words);
+			auto index = 0;
+			std::wstring_view word_ref;
+			for (auto& word : filtered_words) {
+				if (word.first == level_resources->active_word) {
+					word_ref = word.first;
+					break;
+				}
+				index += word.first.length();
+			}
+
+			for (auto jndex = 0; jndex < word_ref.size(); ++jndex)
+				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);
 
 			level_resources->active_word = L"";
 		}
 
-		void handleMouseMoved(sf::Event& window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
+		void handleMouseMoved(sf::Event&
+			window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				sf::Vector2f mousepos = sf::Vector2f(sf::Mouse::getPosition(shared_resources->game_window));
 				std::ranges::for_each(level_resources->playable_letters, [&mousepos, &level_resources](auto& text) {
-					if (text.first.getGlobalBounds().contains(mousepos) && std::ranges::find(level_resources->active_word, text.first.getString()) == level_resources->active_word.end())
-						level_resources->active_word += text.first.getString();
+					if (text.second.getGlobalBounds().contains(mousepos)) {
+						if (std::ranges::find(level_resources->active_word, text.first.getString()) == level_resources->active_word.end())
+							level_resources->active_word += text.first.getString();
+						else if (level_resources->active_word.size() >= 2 && level_resources->active_word[level_resources->active_word.size() - 2] == text.first.getString())
+							level_resources->active_word.pop_back();
+					}
 					});
 			}
 		}
