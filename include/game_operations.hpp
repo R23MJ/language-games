@@ -15,7 +15,7 @@ namespace games {
 
 	namespace detail {
 
-		constexpr size_t VOCAB_SIZE = 229;
+		constexpr size_t VOCAB_SIZE = 2;
 
 	}
 
