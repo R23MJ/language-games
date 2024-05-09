@@ -18,9 +18,8 @@ namespace games {
 		}
 
 		void handleReleased(std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
-			auto letters = shared_resources->word_def_map[0].first;
-			auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&letters](auto const& word_def_pair)->bool {
-				return canSpell(letters, word_def_pair.first);
+			auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&level_resources](auto const& word_def_pair)->bool {
+				return canSpell(level_resources->level_word, word_def_pair.first);
 				});
 
 			size_t count = std::ranges::distance(filtered_words);
@@ -36,6 +35,10 @@ namespace games {
 
 			for (auto jndex = 0; jndex < word_ref.size(); ++jndex)
 				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);
+
+			level_resources->completed = std::ranges::all_of(level_resources->grid_letters, [](auto const& c)->bool {
+				return c.getFillColor() == sf::Color::Green;
+				});
 
 			level_resources->active_word = L"";
 		} 
@@ -88,6 +91,8 @@ namespace games {
 			sf::Event window_event;
 			while (shared_resources->game_window.pollEvent(window_event))
 				detail::processWindowEvent(window_event, shared_resources, level_resources);
+
+			if (level_resources->completed) return;
 
 			shared_resources->game_window.clear();
 			shared_resources->game_window.draw(level_resources->background);
