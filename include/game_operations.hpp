@@ -15,12 +15,14 @@ namespace games {
 
 	namespace detail {
 
-		constexpr size_t VOCAB_SIZE = 219;
+		constexpr size_t VOCAB_SIZE = 229;
 
 	}
 
 	struct SharedResources {
 		size_t level = 1;
+
+		sf::RenderWindow game_window;
 
 		sf::Font alice;
 		sf::Texture cell_background;
@@ -51,7 +53,7 @@ namespace games {
 			return lft.first.length() >= rht.first.length();
 			});
 
-		loadWheelBackground(resources->wheel_background, 100.f);
+		resources->game_window.create(sf::VideoMode(800, 600), "Language Games");
 
 		return loaded;
 	}
@@ -62,10 +64,14 @@ namespace games {
 		else
 			level_resources->level_type = LevelResources::LevelType::CROSSWORD;
 
-		loadPlayWheel(shared_resources->word_def_map[0].first, level_resources->playable_letters, shared_resources->wheel_background.getPosition(), 75.f, shared_resources->alice);
+		std::ranges::for_each(shared_resources->word_def_map[0].first, [&level_resources](auto const& c) {
+			level_resources->playable_letters.emplace_back().setString(c);
+			});
+
+		loadPlayWheel(level_resources->playable_letters, shared_resources->wheel_background, shared_resources->alice, { 400.f, 500.f });
 
 		auto letters = shared_resources->word_def_map[0].first;
-		auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&letters](auto const& word_def_pair)->bool {
+		auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&letters](auto const& word_def_pair)->bool { 
 			return canSpell(letters, word_def_pair.first);
 			});
 

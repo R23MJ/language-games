@@ -10,44 +10,45 @@ namespace games {
 
 	namespace detail {
 
-		auto processWindowEvent(sf::Event& window_event) {
+		void processWindowEvent(sf::Event& window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			if (window_event.type == sf::Event::Closed)
-				return false;
-			return true;
+				shared_resources->game_window.close();
+			else if (window_event.type == sf::Event::Resized) {
+				shared_resources->game_window.setView(sf::View({ 0, 0, static_cast<float>(window_event.size.width), static_cast<float>(window_event.size.height) }));
+				setWheelPosition(shared_resources->wheel_background, level_resources->playable_letters, { window_event.size.width / 2.f, window_event.size.height - 125.f });
+			}
 		}
 
 	}
 
-	void runGameLoop(sf::RenderWindow& game_window, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
-		while (game_window.isOpen()) {
+	void runGameLoop(std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
+		while (shared_resources->game_window.isOpen()) {
 			sf::Event window_event;
-			while (game_window.pollEvent(window_event)) {
-				if (!detail::processWindowEvent(window_event))
-					game_window.close();
-			}
+			while (shared_resources->game_window.pollEvent(window_event))
+				detail::processWindowEvent(window_event, shared_resources, level_resources);
 
-			game_window.clear();
-			game_window.draw(level_resources->background);
+			shared_resources->game_window.clear();
+			shared_resources->game_window.draw(level_resources->background);
 
 			if (level_resources->level_type == LevelResources::LevelType::CROSSWORD) {
 
-				game_window.draw(shared_resources->wheel_background);
+				shared_resources->game_window.draw(shared_resources->wheel_background);
 
-				std::ranges::for_each(level_resources->grid_cells, [&game_window](auto const& sprite) {
-					game_window.draw(sprite);
+				std::ranges::for_each(level_resources->grid_cells, [&shared_resources](auto const& sprite) {
+					shared_resources->game_window.draw(sprite);
 					});
 
-				std::ranges::for_each(level_resources->playable_letters, [&game_window](auto const& c) {
-					game_window.draw(c);
+				std::ranges::for_each(level_resources->playable_letters, [&shared_resources](auto const& c) {
+					shared_resources->game_window.draw(c);
 					});
 
-				std::ranges::for_each(level_resources->grid_letters, [&game_window](auto const& text) {
-					game_window.draw(text);
+				std::ranges::for_each(level_resources->grid_letters, [&shared_resources](auto const& text) {
+					shared_resources->game_window.draw(text);
 					});
 
 			}
 
-			game_window.display();
+			shared_resources->game_window.display();
 		}
 	}
 

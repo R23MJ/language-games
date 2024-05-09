@@ -20,36 +20,40 @@ namespace games {
             return { center.x + offsetX, center.y + offsetY };
         }
 
-        void setupLetter(sf::Text& letter, sf::Font const& font, wchar_t const character, sf::Vector2f const& position) {
+        void loadLetter(sf::Text& letter, sf::Font const& font) {
             letter.setFont(font);
             letter.setCharacterSize(42);
-            letter.setString(sf::String(character));
 
             sf::FloatRect const textBounds = letter.getLocalBounds();
             letter.setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);
-            letter.setPosition(position);
+        }
+
+        void loadWheelBackground(sf::CircleShape& shape, float radius) {
+            shape.setRadius(radius);
+            shape.setPointCount(45);
+            shape.setOrigin(radius, radius);
+            shape.setFillColor(sf::Color(255, 0, 0, 75));
         }
 
     }
 
-    void loadWheelBackground(sf::CircleShape& shape, float radius) {
-        shape.setRadius(radius);
-        shape.setPointCount(45);
-        shape.setOrigin(radius, radius);
-        shape.setFillColor(sf::Color(255, 0, 0, 75));
-        shape.setPosition(sf::Vector2f(800 / 2, 600 - radius - 5));
+    void setWheelPosition(sf::CircleShape& wheel_bg, std::vector<sf::Text>& playable_letters, sf::Vector2f const& position) {
+        float const rotationOffset = detail::calculateRotationOffset(playable_letters.size());
+
+        wheel_bg.setPosition(position);
+        for (size_t i = 0; i < playable_letters.size(); ++i) {
+            float const angle = i * (360.0f / playable_letters.size()) + rotationOffset;
+            sf::Vector2f const letter_position = detail::calculatePosition(angle, wheel_bg.getRadius() - 25.f, position);
+            playable_letters[i].setPosition(letter_position);
+        }
     }
 
-    void loadPlayWheel(std::wstring const& characters, std::vector<sf::Text>& letters_to_play, sf::Vector2f const& center, float const distance, sf::Font const& font) {
-        float const rotationOffset = detail::calculateRotationOffset(characters.length());
-
-        for (size_t i = 0; i < characters.length(); ++i) {
-            float const angle = i * (360.0f / characters.length()) + rotationOffset;
-            sf::Vector2f const position = detail::calculatePosition(angle, distance, center);
-
-            letters_to_play.emplace_back();
-            detail::setupLetter(letters_to_play.back(), font, characters[i], position);
-        }
+    void loadPlayWheel(std::vector<sf::Text>& playable_letters, sf::CircleShape& shape, sf::Font const& font, sf::Vector2f const& position) {
+        detail::loadWheelBackground(shape, 100.f);
+        std::ranges::for_each(playable_letters, [&font](auto& text) {
+            detail::loadLetter(text, font);
+            });
+        setWheelPosition(shape, playable_letters, position);
     }
 
     void loadGridCells(auto& word_list, std::vector<sf::Text>& letters, std::vector<sf::Sprite>& sprites, sf::Font& font, sf::Texture& grid_texture) {
