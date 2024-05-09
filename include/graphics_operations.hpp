@@ -72,7 +72,7 @@ namespace games {
                 letters.back().setFont(font);
                 letters.back().setCharacterSize(42);
                 letters.back().setString(c);
-                letters.back().setFillColor(sf::Color(0, 0, 0, 255));
+                letters.back().setFillColor(sf::Color::Transparent);
 
                 sf::FloatRect const textBounds = letters.back().getLocalBounds();
                 letters.back().setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);

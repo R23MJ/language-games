@@ -10,17 +10,14 @@ namespace games {
 
 	namespace detail {
 
-		void handleMousePressed(sf::Event& window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
-			sf::Vector2f mousepos = sf::Vector2f(window_event.mouseButton.x, window_event.mouseButton.y);
-			std::ranges::for_each(level_resources->playable_letters, [&mousepos, &level_resources](auto& text) {
-				if (text.second.getGlobalBounds().contains(mousepos))
+		void handlePressed(sf::Vector2f const& pos, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
+			std::ranges::for_each(level_resources->playable_letters, [&pos, &level_resources](auto& text) {
+				if (text.second.getGlobalBounds().contains(pos))
 					level_resources->active_word = text.first.getString();
 				});
 		}
 
-		void handleMouseReleased(sf::Event& window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
-			sf::Vector2f mousepos = sf::Vector2f(window_event.mouseButton.x, window_event.mouseButton.y);
-
+		void handleReleased(std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
 			auto letters = shared_resources->word_def_map[0].first;
 			auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&letters](auto const& word_def_pair)->bool {
 				return canSpell(letters, word_def_pair.first);
@@ -41,14 +38,12 @@ namespace games {
 				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);
 
 			level_resources->active_word = L"";
-		}
+		} 
 
-		void handleMouseMoved(sf::Event&
-			window_event, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-				sf::Vector2f mousepos = sf::Vector2f(sf::Mouse::getPosition(shared_resources->game_window));
-				std::ranges::for_each(level_resources->playable_letters, [&mousepos, &level_resources](auto& text) {
-					if (text.second.getGlobalBounds().contains(mousepos)) {
+		void handleMoved(sf::Vector2f const& pos, std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Touch::isDown(0)) {
+				std::ranges::for_each(level_resources->playable_letters, [&pos, &level_resources](auto& text) {
+					if (text.second.getGlobalBounds().contains(pos)) {
 						if (std::ranges::find(level_resources->active_word, text.first.getString()) == level_resources->active_word.end())
 							level_resources->active_word += text.first.getString();
 						else if (level_resources->active_word.size() >= 2 && level_resources->active_word[level_resources->active_word.size() - 2] == text.first.getString())
@@ -65,12 +60,25 @@ namespace games {
 				shared_resources->game_window.setView(sf::View({ 0, 0, static_cast<float>(window_event.size.width), static_cast<float>(window_event.size.height) }));
 				setWheelPosition(shared_resources->wheel_background, level_resources->playable_letters, { window_event.size.width / 2.f, window_event.size.height - 125.f });
 			}
-			else if (window_event.type == sf::Event::MouseButtonPressed)
-				handleMousePressed(window_event, shared_resources, level_resources);
-			else if (window_event.type == sf::Event::MouseButtonReleased)
-				handleMouseReleased(window_event, shared_resources, level_resources);
-			else if (window_event.type == sf::Event::MouseMoved)
-				handleMouseMoved(window_event, shared_resources, level_resources);
+			else if (window_event.type == sf::Event::MouseButtonReleased || window_event.type == sf::Event::TouchEnded) {
+				handleReleased(shared_resources, level_resources);
+			}
+			else if (window_event.type == sf::Event::MouseButtonPressed) {
+				sf::Vector2f mousepos = sf::Vector2f(window_event.mouseButton.x, window_event.mouseButton.y);
+				handlePressed(mousepos, shared_resources, level_resources);
+			}
+			else if (window_event.type == sf::Event::MouseMoved) {
+				sf::Vector2f mousepos = sf::Vector2f(sf::Mouse::getPosition(shared_resources->game_window));
+				handleMoved(mousepos, shared_resources, level_resources);
+			}
+			else if (window_event.type == sf::Event::TouchBegan) {
+				sf::Vector2f mousepos = sf::Vector2f(window_event.touch.x, window_event.touch.y);
+				handlePressed(mousepos, shared_resources, level_resources);
+			}
+			else if (window_event.type == sf::Event::TouchMoved) {
+				sf::Vector2f mousepos = sf::Vector2f(sf::Touch::getPosition(0, shared_resources->game_window));
+				handleMoved(mousepos, shared_resources, level_resources);
+			}
 		}
 
 	}
