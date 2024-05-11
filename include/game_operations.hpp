@@ -2,6 +2,7 @@
 #include <chrono>
 #include <random>
 
+#include <Animator.hpp>
 #include <file_operations.hpp>
 #include <graphics_operations.hpp>
 #include <string_operations.hpp>
@@ -44,6 +45,9 @@ namespace games {
 
 		sf::Texture background_texture;
 		sf::Sprite background;
+
+		Animation<sf::Vector2f> vec2f_animations;
+		Animation<sf::Color> color_animations;
 
 		std::vector<std::pair<sf::Text, sf::CircleShape>> playable_letters;
 		std::vector<sf::Text> grid_letters;
@@ -106,6 +110,8 @@ namespace games {
 		resources->playable_letters.clear();
 		resources->active_word.clear();
 		resources->level_word.clear();
+		resources->color_animations.clear();
+		resources->vec2f_animations.clear();
 	}
 
 }

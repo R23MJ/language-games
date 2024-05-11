@@ -27,6 +27,7 @@ add_executable(
 	${INCLUDE_DIR}/string_operations.hpp
 	${INCLUDE_DIR}/game_operations.hpp
 	${INCLUDE_DIR}/game_loop.hpp
+	${INCLUDE_DIR}/Animator.hpp
 
 	${RESOURCE_DIR}/vocab.txt
 )
