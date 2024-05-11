@@ -36,11 +36,31 @@ namespace games {
 				index += word.first.length();
 			}
 
-			for (auto jndex = 0; jndex < word_ref.size(); ++jndex)
-				level_resources->grid_letters[index + jndex].setFillColor(sf::Color::Green);
+			for (auto jndex = 0; jndex < word_ref.size(); ++jndex) {
+				auto& grid_letter = level_resources->grid_letters[index + jndex];
+				if (grid_letter.getFillColor() != sf::Color::Green) {
+					level_resources->color_animations.animate(
+						sf::Color::Transparent, sf::Color::Green, 0.5f, [&grid_letter](auto const& color) {
+							grid_letter.setFillColor(color);
+						}, [](const sf::Color& start, const sf::Color& end, float t) {
+							sf::Color lerped;
+							lerped.r = start.r + (end.r - start.r) * t;
+							lerped.g = start.g + (end.g - start.g) * t;
+							lerped.b = start.b + (end.b - start.b) * t;
+							lerped.a = start.a + (end.a - start.a) * t;
+							return lerped;
+						});
+
+					level_resources->vec2f_animations.animate(
+						shared_resources->wheel_background.getPosition(),
+						grid_letter.getPosition(), 0.5f, [&grid_letter](auto const& vec2f) {
+							grid_letter.setPosition(vec2f);
+						});
+				}
+			}
 
 			level_resources->completed = std::ranges::all_of(level_resources->grid_letters, [](auto const& c)->bool {
-				return c.getFillColor() == sf::Color::Green;
+				return c.getFillColor() != sf::Color::Transparent;
 				});
 
 			level_resources->active_word.clear();
@@ -90,10 +110,14 @@ namespace games {
 	}
 
 	void runGameLoop(std::unique_ptr<SharedResources>& shared_resources, std::unique_ptr<LevelResources>& level_resources) {
+		sf::Clock animation_stop_watch;
 		while (shared_resources->game_window.isOpen()) {
 			sf::Event window_event;
 			while (shared_resources->game_window.pollEvent(window_event))
 				detail::processWindowEvent(window_event, shared_resources, level_resources);
+
+			level_resources->color_animations.update(animation_stop_watch.getElapsedTime().asSeconds());
+			level_resources->vec2f_animations.update(animation_stop_watch.restart().asSeconds());
 
 			if (level_resources->completed) return;
 
