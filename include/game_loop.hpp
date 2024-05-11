@@ -22,10 +22,12 @@ namespace games {
 				return canSpell(level_resources->level_word, word_def_pair.first);
 				});
 
-			size_t count = std::ranges::distance(filtered_words);
+			auto take_view = std::ranges::take_view(filtered_words, 10);
+
+			size_t count = std::ranges::distance(take_view);
 			auto index = 0;
 			std::wstring_view word_ref;
-			for (auto& word : filtered_words) {
+			for (auto& word : take_view) {
 				size_t letter_index = 0;
 				if (word.first.size() == level_resources->active_word.size() && std::ranges::all_of(level_resources->active_word, [&word, &letter_index, &level_resources](auto const& c)->bool {
 					return word.first[letter_index++] == c.get().getString();

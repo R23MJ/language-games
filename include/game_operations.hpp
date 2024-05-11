@@ -17,6 +17,7 @@ namespace games {
 	namespace detail {
 
 		constexpr size_t VOCAB_SIZE = 19;
+		constexpr size_t TEXTURE_COUNT = 4;
 
 	}
 
@@ -30,6 +31,7 @@ namespace games {
 
 		sf::Font alice;
 		sf::Texture cell_background;
+		std::array<sf::Texture, detail::TEXTURE_COUNT> background_textures;
 		std::array<std::pair<std::wstring, std::wstring>, detail::VOCAB_SIZE> word_def_map;
 
 		sf::CircleShape wheel_background;
@@ -43,7 +45,6 @@ namespace games {
 		std::wstring level_word;
 		std::vector<std::reference_wrapper<sf::Text>> active_word;
 
-		sf::Texture background_texture;
 		sf::Sprite background;
 
 		Animation<sf::Vector2f> vec2f_animations;
@@ -61,6 +62,13 @@ namespace games {
 			level_resources->level_word = shared_resources->word_def_map[shared_resources->distribution(shared_resources->generator)].first;
 		}
 	
+		int rotationalClamp(int value, int minValue, int maxValue) {
+			int range = maxValue - minValue + 1;
+			while (value < minValue)
+				value += range;
+			return minValue + (value - minValue) % range;
+		}
+
 	}
 
 	bool loadSharedResources(std::unique_ptr<SharedResources>& resources) {
@@ -68,6 +76,10 @@ namespace games {
 		loaded &= resources->alice.loadFromFile("../resources/Alice.ttf");
 		loaded &= loadVocabularyFromFile("../resources/vocab.txt", resources->word_def_map);
 		loaded &= resources->cell_background.loadFromFile("../resources/grid_cell.png");
+		loaded &= resources->background_textures[0].loadFromFile("../resources/background.png");
+		loaded &= resources->background_textures[1].loadFromFile("../resources/background-2.png");
+		loaded &= resources->background_textures[2].loadFromFile("../resources/background-3.png");
+		loaded &= resources->background_textures[3].loadFromFile("../resources/background-4.png");
 
 		// SORT WORD MAP BY LENGTH OF WORD
 		std::ranges::sort(resources->word_def_map, [](auto& lft, auto& rht)->bool {
@@ -85,6 +97,8 @@ namespace games {
 			level_resources->level_type = LevelResources::LevelType::MENU;
 		else
 			level_resources->level_type = LevelResources::LevelType::CROSSWORD;
+		
+		level_resources->background.setTexture(shared_resources->background_textures[detail::rotationalClamp(shared_resources->level, 0, detail::TEXTURE_COUNT - 1)]);
 
 		detail::getLevelWord(shared_resources, level_resources);
 		std::ranges::shuffle(level_resources->level_word, shared_resources->generator);
@@ -98,7 +112,9 @@ namespace games {
 			return canSpell(level_resources->level_word, word_def_pair.first);
 			});
 
-		loadGridCells(filtered_words, level_resources->grid_letters, level_resources->grid_cells, shared_resources->alice, shared_resources->cell_background);
+		auto take_view = std::ranges::take_view(filtered_words, 10);
+
+		loadGridCells(take_view, level_resources->grid_letters, level_resources->grid_cells, shared_resources->alice, shared_resources->cell_background);
 
 		return true;
 	}
