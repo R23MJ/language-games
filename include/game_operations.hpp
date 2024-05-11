@@ -92,7 +92,7 @@ namespace games {
 			level_resources->playable_letters.emplace_back().first.setString(c);
 			});
 
-		loadPlayWheel(level_resources->playable_letters, shared_resources->wheel_background, shared_resources->alice, { 400.f, 500.f });
+		loadPlayWheel(level_resources->playable_letters, shared_resources->wheel_background, shared_resources->alice, { shared_resources->game_window.getSize().x / 2.f, shared_resources->game_window.getSize().y - 125.f });
 
 		auto filtered_words = std::ranges::filter_view(shared_resources->word_def_map, [&level_resources](auto const& word_def_pair)->bool { 
 			return canSpell(level_resources->level_word, word_def_pair.first);
