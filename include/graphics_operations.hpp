@@ -24,7 +24,7 @@ namespace games {
             shape.setRadius(radius);
             shape.setPointCount(45);
             shape.setOrigin(radius, radius);
-            shape.setFillColor(sf::Color(255, 0, 0, 75));
+            shape.setFillColor(sf::Color(255, 0, 0, 105));
         }
 
         void loadLetter(std::pair<sf::Text, sf::CircleShape>& letter, sf::Font const& font) {

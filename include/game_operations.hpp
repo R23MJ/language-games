@@ -16,7 +16,7 @@ namespace games {
 
 	namespace detail {
 
-		constexpr size_t VOCAB_SIZE = 19;
+		constexpr size_t VOCAB_SIZE = 1;
 		constexpr size_t TEXTURE_COUNT = 4;
 
 	}
@@ -73,7 +73,7 @@ namespace games {
 
 	bool loadSharedResources(std::unique_ptr<SharedResources>& resources) {
 		bool loaded = true;
-		loaded &= resources->alice.loadFromFile("../resources/Alice.ttf");
+		loaded &= resources->alice.loadFromFile("../resources/stor.ttf");
 		loaded &= loadVocabularyFromFile("../resources/vocab.txt", resources->word_def_map);
 		loaded &= resources->cell_background.loadFromFile("../resources/grid_cell.png");
 		loaded &= resources->background_textures[0].loadFromFile("../resources/background.png");
